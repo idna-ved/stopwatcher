@@ -38,9 +38,9 @@ class create_queries():
     def get_gyms(self, area):
         self.convert_area(area)
         if self.schema == "mad":
-            self.cursor.execute(f"SELECT gymdetails.gym_id, latitude, longitude, name, url FROM gym LEFT JOIN gymdetails on gym.gym_id = gymdetails.gym_id WHERE ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({self.area}))'), point(latitude, longitude));")
+            self.cursor.execute(f"SELECT gymdetails.gym_id, latitude, longitude, name, url, is_ex_raid_eligible FROM gym LEFT JOIN gymdetails on gym.gym_id = gymdetails.gym_id WHERE ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({self.area}))'), point(latitude, longitude));")
         elif self.schema == "rdm":
-            self.cursor.execute(f"SELECT id, lat, lon, name, url FROM gym WHERE ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({self.area}))'), point(lat, lon));")
+            self.cursor.execute(f"SELECT id, lat, lon, name, url, ex_raid_eligible FROM gym WHERE ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON(({self.area}))'), point(lat, lon));")
         gyms = self.cursor.fetchall()
         return gyms
 

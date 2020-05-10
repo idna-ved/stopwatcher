@@ -191,8 +191,8 @@ for fil in config.filters:
         if "gym" in fil["send"]:
             print("Looking for new Gyms")
             gyms = queries.get_gyms(fil["area"])
-            for g_id, g_lat, g_lon, g_name, g_img in gyms:
-                gym = waypoint(queries, config, "gym", g_id, g_name, g_img, g_lat, g_lon)
+            for g_id, g_lat, g_lon, g_name, g_img, g_ex in gyms:
+                gym = waypoint(queries, config, "gym", g_id, g_name, g_img, g_lat, g_lon, g_ex)
                 if gym.empty:
                     if dont_send_empty:
                         continue

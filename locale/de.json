@@ -27,5 +27,6 @@
     "stays_no_stop": "❌ Bleibt kein Stop",
     "cell_becomes_empty": "✅ Wird leer",
     "cell_stays_occupied": "❌ Bleibt belegt",
-    "gets_new_stop": "✅ Bekommt einen neuen Stop"
+    "gets_new_stop": "✅ Bekommt einen neuen Stop",
+    "is_ex_raid_eligible": "Ex-Raid ist möglich"
 }

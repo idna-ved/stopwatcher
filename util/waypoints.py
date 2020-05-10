@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from util.s2cells import s2cell
 
 class waypoint():
-    def __init__(self, queries, config, wf_type, wf_id, name = None, img = None, lat = 0, lon = 0):
+    def __init__(self, queries, config, wf_type, wf_id, name = None, img = None, lat = 0, lon = 0, ex = 0):
         self.queries = queries
         self.config = config
         self.locale = config.locale
@@ -23,7 +23,8 @@ class waypoint():
         self.edit = False
         self.edit_type = ""
         self.before_edit = None
-
+        self.ex = ex
+		
         self.empty = False
         if self.name is None or self.name == "unknown":
             self.empty = True
@@ -114,6 +115,9 @@ class waypoint():
         geojson = ""
         convert_time = ""
         try:
+            if self.type == "gym" and "show_if_ex_raid_eligible" in fil and self.ex == 1:
+                text = self.locale["is_ex_raid_eligible"]
+
             if self.type == "portal":
                 if self.is_stop() or self.is_gym():
                     didnt_exist = False

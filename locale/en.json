@@ -27,5 +27,6 @@
     "stays_no_stop": "❌ Keeps being no Stop",
     "cell_becomes_empty": "✅ Becomes empty",
     "cell_stays_occupied": "❌ Stays occupied",
-    "gets_new_stop": "✅ Gets a new Stop"
+    "gets_new_stop": "✅ Gets a new Stop",
+    "is_ex_raid_eligible": "Is ex raid eligible"
 }
